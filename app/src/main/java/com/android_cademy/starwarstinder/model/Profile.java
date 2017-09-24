@@ -2,12 +2,13 @@ package com.android_cademy.starwarstinder.model;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 @Entity public class Profile {
 
-  @PrimaryKey @SerializedName("name") @Expose private String name;
+  @PrimaryKey @NonNull @SerializedName("name") @Expose private String name;
 
   @SerializedName("url") @Expose private String imageUrl;
 

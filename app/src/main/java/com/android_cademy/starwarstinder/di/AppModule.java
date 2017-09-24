@@ -3,13 +3,10 @@ package com.android_cademy.starwarstinder.di;
 import android.app.Application;
 import android.arch.persistence.room.Room;
 import android.content.Context;
-import com.academy.android.starwarsmovies.model.AppDatabase;
-import com.android_cademy.starwarstinder.BuildConfig;
-import com.android_cademy.starwarstinder.R;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
-import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
+import com.android_cademy.starwarstinder.ViewModel.MainViewModelFactory;
+import com.android_cademy.starwarstinder.db.AppDatabase;
+import com.android_cademy.starwarstinder.model.ProfileRepository;
+import com.android_cademy.starwarstinder.network.ProfileNetworkDataSource;
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Singleton;
@@ -26,25 +23,21 @@ import javax.inject.Singleton;
     return application.getApplicationContext();
   }
 
-  //@Provides @Singleton AppDatabase providesDatabase(Context context) {
-  //  return Room.inMemoryDatabaseBuilder(context.getApplicationContext(), AppDatabase.class).build();
-  //}
-  //
-  //@Provides @Singleton FirebaseAuth providesFirebaseAuth() {
-  //  return FirebaseAuth.getInstance();
-  //}
-  //
-  //@Provides @Singleton FirebaseDatabase providesDatabaseReference() {
-  //  return FirebaseDatabase.getInstance();
-  //}
-  //
-  //@Provides @Singleton FirebaseRemoteConfig providesRemoteConfig() {
-  //  FirebaseRemoteConfig remoteConfig = FirebaseRemoteConfig.getInstance();
-  //  FirebaseRemoteConfigSettings configSettings =
-  //      new FirebaseRemoteConfigSettings.Builder().setDeveloperModeEnabled(BuildConfig.DEBUG)
-  //          .build();
-  //  remoteConfig.setConfigSettings(configSettings);
-  //  remoteConfig.setDefaults(R.xml.remote_config_defaults);
-  //  return remoteConfig;
-  //}
+  @Provides @Singleton AppDatabase providesDatabase(Context context) {
+    return Room.inMemoryDatabaseBuilder(context.getApplicationContext(), AppDatabase.class).build();
+  }
+
+  @Provides @Singleton ProfileNetworkDataSource providesProfileNetworkSource(Context context) {
+    return new ProfileNetworkDataSource(context);
+  }
+
+  @Provides @Singleton ProfileRepository providesProfileRepository(AppDatabase appDatabase,
+      ProfileNetworkDataSource profileNetworkDataSource) {
+    return new ProfileRepository(appDatabase, profileNetworkDataSource);
+  }
+
+  @Provides @Singleton MainViewModelFactory providesMainActivityViewModel(
+      ProfileRepository profileRepository) {
+    return new MainViewModelFactory(profileRepository);
+  }
 }
