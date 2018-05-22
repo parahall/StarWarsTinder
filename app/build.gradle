@@ -1,52 +1,57 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 26
-  buildToolsVersion "26.0.1"
-  defaultConfig {
-    applicationId "com.android_cademy.starwarstinder"
-    minSdkVersion 16
-    targetSdkVersion 26
-    versionCode 1
-    versionName "1.0"
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-  }
-  buildTypes {
-    release {
-      minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+    defaultConfig {
+        applicationId "com.android_cademy.starwarstinder"
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-  }
-  compileOptions {
-    targetCompatibility 1.8
-    sourceCompatibility 1.8
-  }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 
+ext.arch_version = "1.1.1"
+ext.room_version = "1.1.0"
+ext.support_version = "27.1.1"
+ext.firebase_jobdispatcher_version = "0.8.5"
+ext.junit_version = "4.12"
+ext.constraint_layout_version = "1.1.0"
+ext.dagger = "2.10"
+ext.gson = "2.8.0"
+
 dependencies {
-  implementation fileTree(dir: 'libs', include: ['*.jar'])
-  implementation "com.android.support:appcompat-v7:$support_version"
-  implementation "com.android.support:recyclerview-v7:$support_version"
-  implementation "com.android.support:preference-v7:$support_version"
-  implementation "com.android.support.constraint:constraint-layout:$constraint_layout_version"
-  implementation "com.firebase:firebase-jobdispatcher:$firebase_jobdispatcher_version"
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "com.android.support:appcompat-v7:$support_version"
+    implementation "com.android.support:recyclerview-v7:$support_version"
+    implementation "com.android.support:preference-v7:$support_version"
+    implementation "com.android.support.constraint:constraint-layout:$constraint_layout_version"
 
-  implementation "com.google.dagger:dagger:$dagger"
-  annotationProcessor "com.google.dagger:dagger-compiler:$dagger"
-  implementation "com.google.code.gson:gson:$gson"
+    implementation "com.firebase:firebase-jobdispatcher:$firebase_jobdispatcher_version"
 
-  //LifeCycle + LiveData + ViewModel
-  implementation "android.arch.lifecycle:extensions:$arch_version"
-  annotationProcessor "android.arch.lifecycle:compiler:$arch_version"
-  implementation "android.arch.lifecycle:common-java8:$arch_version"
+    implementation "com.google.dagger:dagger:$dagger"
+    annotationProcessor "com.google.dagger:dagger-compiler:$dagger"
+    implementation "com.google.code.gson:gson:$gson"
 
-  //Room
-  implementation "android.arch.persistence.room:runtime:$arch_version"
-  annotationProcessor "android.arch.persistence.room:compiler:$arch_version"
+    //LifeCycle + LiveData + ViewModel
+    implementation "android.arch.lifecycle:extensions:$arch_version"
+    annotationProcessor "android.arch.lifecycle:compiler:$arch_version"
+    implementation "android.arch.lifecycle:common-java8:$arch_version"
 
+    //Room
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    annotationProcessor "android.arch.persistence.room:compiler:$room_version"
 
-  testImplementation 'junit:junit:4.12'
-  androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
-    exclude group: 'com.android.support', module: 'support-annotations'
-  })
 }
