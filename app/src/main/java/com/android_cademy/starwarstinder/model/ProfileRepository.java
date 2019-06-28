@@ -1,6 +1,6 @@
 package com.android_cademy.starwarstinder.model;
 
-import android.arch.lifecycle.LiveData;
+import androidx.lifecycle.LiveData;
 
 import com.android_cademy.starwarstinder.db.AppDatabase;
 import com.android_cademy.starwarstinder.network.ProfileNetworkDataSource;

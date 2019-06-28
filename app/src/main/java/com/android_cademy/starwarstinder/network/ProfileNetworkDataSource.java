@@ -1,6 +1,6 @@
 package com.android_cademy.starwarstinder.network;
 
-import android.arch.lifecycle.MutableLiveData;
+import androidx.lifecycle.MutableLiveData;
 import android.content.Context;
 import android.content.Intent;
 

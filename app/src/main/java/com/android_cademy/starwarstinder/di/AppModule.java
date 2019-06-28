@@ -1,7 +1,7 @@
 package com.android_cademy.starwarstinder.di;
 
 import android.app.Application;
-import android.arch.persistence.room.Room;
+import androidx.room.Room;
 import android.content.Context;
 
 import com.android_cademy.starwarstinder.ViewModel.MainViewModelFactory;

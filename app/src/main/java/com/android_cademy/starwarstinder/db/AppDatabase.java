@@ -1,7 +1,7 @@
 package com.android_cademy.starwarstinder.db;
 
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.RoomDatabase;
+import androidx.room.Database;
+import androidx.room.RoomDatabase;
 
 import com.android_cademy.starwarstinder.model.Profile;
 

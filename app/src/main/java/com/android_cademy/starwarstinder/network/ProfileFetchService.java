@@ -2,7 +2,7 @@ package com.android_cademy.starwarstinder.network;
 
 import android.app.IntentService;
 import android.content.Intent;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.android_cademy.starwarstinder.ResourcesUtil;
 import com.android_cademy.starwarstinder.StarWarsApp;
