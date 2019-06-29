@@ -19,11 +19,10 @@ constructor(private val db: AppDatabase, private val profileNetworkDataSource: P
     private val isFetchNeeded: Boolean
         get() {
             val count = db.profileDao().countProfiles()
-            return count <= ProfileRepository.MIN_PROFILES_TO_CACHE
+            return count <= MIN_PROFILES_TO_CACHE
         }
 
     init {
-
         val networkData = profileNetworkDataSource.currentProfiles
         networkData.observeForever { profilesFromNetwork ->
             Thread {
@@ -52,7 +51,6 @@ constructor(private val db: AppDatabase, private val profileNetworkDataSource: P
     }
 
     companion object {
-
         private val MIN_PROFILES_TO_CACHE = 10
     }
 }
