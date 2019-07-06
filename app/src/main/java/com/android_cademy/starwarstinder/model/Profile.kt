@@ -9,10 +9,10 @@ data class Profile(
         @PrimaryKey
         val name: String,
         @ColumnInfo(name = "url")
-        var imageUrl: String?,
+        var url: String,
         @ColumnInfo(name = "age")
-        var age: Int?,
+        var age: Int,
         @ColumnInfo(name = "location")
-        var location: String?
+        var location: String
 )
 

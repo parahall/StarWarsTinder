@@ -1,4 +1,4 @@
-package com.android_cademy.starwarstinder.View
+package com.android_cademy.starwarstinder.view
 
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -8,8 +8,8 @@ import android.widget.TextView
 
 import com.android_cademy.starwarstinder.R
 import com.android_cademy.starwarstinder.StarWarsApp
-import com.android_cademy.starwarstinder.ViewModel.MainViewModel
-import com.android_cademy.starwarstinder.ViewModel.MainViewModelFactory
+import com.android_cademy.starwarstinder.viewModel.MainViewModel
+import com.android_cademy.starwarstinder.viewModel.MainViewModelFactory
 import com.android_cademy.starwarstinder.model.Profile
 
 import javax.inject.Inject
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity(), Observer<List<Profile>> {
         setContentView(R.layout.activity_main)
 
         val mainViewModel = ViewModelProviders.of(this, factory).get(MainViewModel::class.java)
-        mainViewModel.profiles.observe(this, this)
+        mainViewModel.uiProfiles.observe(this, this)
     }
 
     override fun onChanged(profiles: List<Profile>?) {

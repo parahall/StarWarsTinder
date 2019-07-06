@@ -9,7 +9,7 @@ import javax.inject.Inject
 class ProfileNetworkDataSource @Inject
 constructor(val context: Context) {
 
-    val currentProfiles: MutableLiveData<List<Profile>> = MutableLiveData()
+    val networkProfiles: MutableLiveData<List<Profile>> = MutableLiveData()
 
     fun startFetchProfiles() {
         val intentToFetch = Intent(context, ProfileFetchService::class.java)

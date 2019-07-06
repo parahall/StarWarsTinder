@@ -12,7 +12,6 @@ constructor(private val db: AppDatabase, private val profileNetworkDataSource: P
 
     val profiles: LiveData<List<Profile>>
         get() {
-            initializeData()
             return db.profileDao().getAll()
         }
 
@@ -23,7 +22,7 @@ constructor(private val db: AppDatabase, private val profileNetworkDataSource: P
         }
 
     init {
-        val networkData = profileNetworkDataSource.currentProfiles
+        val networkData = profileNetworkDataSource.networkProfiles
         networkData.observeForever { profilesFromNetwork ->
             Thread {
                 deleteOldData()
@@ -31,13 +30,14 @@ constructor(private val db: AppDatabase, private val profileNetworkDataSource: P
                 db.profileDao().bulkInsert(*profile)
             }.start()
         }
+        fetchData()
     }
 
     private fun deleteOldData() {
         db.profileDao().deleteProfiles()
     }
 
-    private fun initializeData() {
+    private fun fetchData() {
         //regular thread is used to simplify the example. don't do that in the production :)
         Thread {
             if (isFetchNeeded) {

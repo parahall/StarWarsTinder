@@ -5,7 +5,6 @@ import android.content.Intent
 
 import com.android_cademy.starwarstinder.ResourcesUtil
 import com.android_cademy.starwarstinder.StarWarsApp
-import com.android_cademy.starwarstinder.model.Profile
 
 import javax.inject.Inject
 
@@ -19,7 +18,7 @@ class ProfileFetchService : IntentService("ProfileFetchService") {
 
         val profiles = ResourcesUtil.loadProfiles(this)
         if (profiles != null) {
-            profileNetworkDataSource.currentProfiles.postValue(profiles)
+            profileNetworkDataSource.networkProfiles.postValue(profiles)
         }
     }
 }
