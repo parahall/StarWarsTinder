@@ -15,7 +15,9 @@ class MainViewModel internal constructor(profileRepository: ProfileRepository) :
 
     val repositoryProfiels: LiveData<List<Profile>> = profileRepository.profiles
 
-    private val observer = Observer<List<Profile>> { list -> _uiProfiles.postValue(list) }
+    private val observer = Observer<List<Profile>> {
+        _uiProfiles.postValue(it)
+    }
 
     init {
         repositoryProfiels.observeForever(observer)
