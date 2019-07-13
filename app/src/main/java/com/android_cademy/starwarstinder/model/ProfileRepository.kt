@@ -2,15 +2,14 @@ package com.android_cademy.starwarstinder.model
 
 import androidx.lifecycle.LiveData
 
-import com.android_cademy.starwarstinder.db.AppDatabase
-import com.android_cademy.starwarstinder.network.ProfileNetworkDataSource
+import com.android_academy.network.ProfileNetworkDataSource
 
 import javax.inject.Inject
 
 class ProfileRepository @Inject
-constructor(private val db: AppDatabase, private val profileNetworkDataSource: ProfileNetworkDataSource) {
+constructor(private val db: com.android_academy.db.AppDatabase, private val profileNetworkDataSource: ProfileNetworkDataSource) {
 
-    val profiles: LiveData<List<Profile>>
+    val profiles: LiveData<List<com.android_academy.db.Profile>>
         get() {
             return db.profileDao().getAll()
         }

@@ -1,4 +1,4 @@
-package com.android_cademy.starwarstinder.network
+package com.android_academy.network
 
 import android.app.IntentService
 import android.content.Intent

@@ -1,12 +1,10 @@
-package com.android_cademy.starwarstinder.db
+package com.android_academy.db
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-
-import com.android_cademy.starwarstinder.model.Profile
 
 @Dao
 interface ProfileDao {

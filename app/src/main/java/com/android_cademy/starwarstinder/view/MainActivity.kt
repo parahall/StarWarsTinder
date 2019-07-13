@@ -8,7 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.android_cademy.starwarstinder.R
 import com.android_cademy.starwarstinder.StarWarsApp
-import com.android_cademy.starwarstinder.model.Profile
+import com.android_academy.db.Profile
 import com.android_cademy.starwarstinder.viewModel.MainViewModel
 import com.android_cademy.starwarstinder.viewModel.MainViewModelFactory
 import javax.inject.Inject

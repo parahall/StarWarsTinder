@@ -1,4 +1,4 @@
-package com.android_cademy.starwarstinder.model
+package com.android_academy.db
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

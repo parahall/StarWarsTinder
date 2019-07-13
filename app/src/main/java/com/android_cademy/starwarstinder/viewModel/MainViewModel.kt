@@ -5,17 +5,16 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 
-import com.android_cademy.starwarstinder.model.Profile
 import com.android_cademy.starwarstinder.model.ProfileRepository
 
 class MainViewModel internal constructor(profileRepository: ProfileRepository) : ViewModel() {
 
-    private val _uiProfiles: MutableLiveData<List<Profile>> = MutableLiveData()
-    val uiProfiles: LiveData<List<Profile>> = _uiProfiles
+    private val _uiProfiles: MutableLiveData<List<com.android_academy.db.Profile>> = MutableLiveData()
+    val uiProfiles: LiveData<List<com.android_academy.db.Profile>> = _uiProfiles
 
-    val repositoryProfiels: LiveData<List<Profile>> = profileRepository.profiles
+    val repositoryProfiels: LiveData<List<com.android_academy.db.Profile>> = profileRepository.profiles
 
-    private val observer = Observer<List<Profile>> {
+    private val observer = Observer<List<com.android_academy.db.Profile>> {
         _uiProfiles.postValue(it)
     }
 

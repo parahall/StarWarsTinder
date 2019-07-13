@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/StarWarsTinder.iml" filepath="$PROJECT_DIR$/StarWarsTinder.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libraries/db/db.iml" filepath="$PROJECT_DIR$/libraries/db/db.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libraries/libraries.iml" filepath="$PROJECT_DIR$/libraries/libraries.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libraries/network/network.iml" filepath="$PROJECT_DIR$/libraries/network/network.iml" />
     </modules>
   </component>
 </project>

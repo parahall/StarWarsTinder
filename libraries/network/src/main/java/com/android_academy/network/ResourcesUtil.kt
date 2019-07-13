@@ -1,7 +1,7 @@
-package com.android_cademy.starwarstinder
+package com.android_academy.network
 
 import android.content.Context
-import com.android_cademy.starwarstinder.model.Profile
+import com.android_academy.db.Profile
 import com.google.gson.GsonBuilder
 import org.json.JSONArray
 import java.io.BufferedReader

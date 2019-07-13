@@ -1,9 +1,8 @@
-package com.android_cademy.starwarstinder.network
+package com.android_academy.network
 
 import android.content.Context
 import android.content.Intent
 import androidx.lifecycle.MutableLiveData
-import com.android_cademy.starwarstinder.model.Profile
 import javax.inject.Inject
 
 class ProfileNetworkDataSource @Inject
